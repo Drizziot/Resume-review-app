@@ -5,7 +5,8 @@ langchain-community
 groq
 sentence-transformers
 pymupdf
-chromadb
+faiss-cpu
 torch
 transformers
 python-dotenv
+
