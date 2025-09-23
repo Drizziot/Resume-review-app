@@ -8,7 +8,7 @@ from langchain_groq import ChatGroq
 from langchain_community.embeddings import HuggingFaceEmbeddings
 from langchain.prompts import PromptTemplate
 from langchain_community.document_loaders import PyMuPDFLoader
-from langchain_community.vectorstores import Chroma
+from langchain_community.vectorstores import FAISS
 
 
 # Load environment variables from .env file
@@ -138,7 +138,7 @@ def process_uploaded_file(uploaded_file, api_key):
 
         # Create vector database
         embedding = initialize_embeddings()
-        vectordb = Chroma.from_documents(
+        vectordb = FAISS.from_documents(
             documents=data,
             embedding=embedding,
             persist_directory=None
@@ -271,3 +271,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
